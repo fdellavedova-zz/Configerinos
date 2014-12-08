@@ -1,0 +1,35 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+# Update interval in seconds
+update_interval 1.0
+total_run_times 0
+override_utf8_locale yes
+TEXT
+#---- CPU ----
+[{"full_text":"⭥","color" : "\#6E8CA0" ,"separator":false,"separator_block_width":6 },\
+{"full_text":"${cpu}%","color" : "\#dadee0" ,"separator":false,"separator_block_width":8 },\
+#---- MEM ----
+{"full_text":"⭦","color" : "\#6E8CA0" ,"separator":false,"separator_block_width":6 },\
+{"full_text":"${mem}","color" : "\#dadee0" ,"separator":false,"separator_block_width":6 },\
+# ---- WIRELESS ESSID/QUALITY ----
+{"full_text": "${if_match ${wireless_link_qual_perc}>=70}⮷ ", "color": "\#6E8CA0","separator":false,"separator_block_width":1},\
+{"full_text":"${else}"},\
+{"full_text": "${if_match ${wireless_link_qual_perc}<70}⮸ ", "color": "\#6E8CA0" ,"separator":false,"separator_block_width":1},\
+{"full_text":"${else}"},\
+{"full_text": "${if_match ${wireless_link_qual_perc}<30}⮹ ", "color": "\#6E8CA0" ,"separator":false,"separator_block_width":1},\
+{"full_text":"${endif}${endif}${endif}"},\
+{"full_text":"${wireless_essid wlan0} ", "color": "\#dadee0","separator":false,"separator_block_width":2},\
+# ---- BATTERY (%) ----
+{"full_text":"${if_match ${battery_percent}<=20}⮐ ","color":"\#6E8CA0","separator":false,"separator_block_width":1},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${battery_percent}<=70}⮑ ","color":"\#6E8CA0","separator":false,"separator_block_width":1},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${battery_percent}>70}⮏ ","color":"\#6E8CA0","separator":false,"separator_block_width":1},\
+{"full_text":"${endif}${endif}${endif}"},\
+{"full_text":"${battery_percent BAT0}%","color":"\#dadee0","separator":false,"separator_block_width":6},\
+# ---- TIME/DATE ----
+{"full_text":"⮖","color" : "\#6E8CA0","separator":false,"separator_block_width":4 },\
+{"full_text":"${time %a %b %d, %I:%M %p}","color" : "\#dadee0" }] ,
